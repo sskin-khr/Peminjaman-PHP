@@ -41,19 +41,20 @@ while (true) {
 
     } elseif ($pilih == "3") {
     $idHapus = (int) readline("Masukkan ID barang yang ingin dihapus: ");
+    $ditemukan = false;
 
-    foreach ($daftarBarang as $index => $b) {
-        if ($b["id"] == $idHapus) {
-            array_splice($daftarBarang, $index, 1);
-            $ditemukan = true;
-            echo "> Barang berhasil dihapus!\n";
-            break;
-            
-        } else {
+        foreach ($daftarBarang as $index => $b) {
+            if ($b["id"] == $idHapus) {
+                array_splice($daftarBarang, $index, 1);
+                $ditemukan = true;
+                echo "> Barang berhasil dihapus!\n";
+                break;
+            }
+        }
+
+        if (!$ditemukan) {
             echo "Error: barang tidak ditemukan!\n";
         }
-    }
-
     } elseif ($pilih == "4") {
         echo "Terima kasih!\n";
         break;
